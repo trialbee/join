@@ -8,7 +8,7 @@ const middlewares = [reduxThunk];
 
 var store;
 
-export function makeStore(debug = false) {    
+export function makeStore(debug = false, initialState) {    
 
     var finalCreateStore;
 
@@ -24,6 +24,6 @@ export function makeStore(debug = false) {
         finalCreateStore = applyMiddleware(...middlewares)(createStore);
     }
 
-    store = finalCreateStore(reducer);
+    store = finalCreateStore(reducer, initialState);
     return store;
 }

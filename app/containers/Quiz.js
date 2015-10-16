@@ -7,6 +7,8 @@ import {
     abort
 } from 'services/quiz-service';
 
+import { saveProfile } from 'services/firebase-service';
+
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import Button from 'react-bootstrap/lib/Button';
 
@@ -37,30 +39,23 @@ export class Quiz extends React.Component {
         var { header, footer } = this;
         var { dispatch, app, quiz } = this.props;
         var { questions, currentQuestion } = quiz;
-
-        var content, results;
-        var showQuestions = currentQuestion < questions;
-        var showResults = !showQuestions;
-
-        if (showQuestions) {
-            content = (
-                <QuizQuestions {...quiz} 
-                    onAnswer={data => dispatch(answer(data))} />
-            );
-        }
+        
+        var showQuestions = app.isPlaying;
+        var showResults = currentQuestion >= questions;
 
         return (
             <div>
-                <FullscreenGrid 
-                    slideDirection="right" 
-                    isVisible={app.isPlaying} 
+                
+                <QuizQuestions {...quiz}
+                    isVisible={showQuestions}
                     header={header}
                     footer={footer}
-                    children={content} />
+                    onAnswer={data => dispatch(answer(data))} />
                     
                 <QuizResults {...quiz}
                     isVisible={showResults}
-                    onConfirm={$=> dispatch(abort())} />
+                    onSubmit={data => dispatch(saveProfile(data))}
+                    onCancel={$=> dispatch(abort())} />
             </div>
         );
     }

@@ -4,6 +4,8 @@ import Grid from 'react-bootstrap/lib/Grid';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Button from 'react-bootstrap/lib/Button';
 
+import { FullscreenGrid } from 'components/FullscreenGrid';
+
 export class QuizQuestions extends React.Component {
 
     static defaultProps = {
@@ -14,7 +16,19 @@ export class QuizQuestions extends React.Component {
 
     render() {
 
-        var { onAnswer, questions, currentQuestion } = this.props;
+        var {
+            header,
+            footer,
+            isVisible,
+            onAnswer, 
+            questions, 
+            currentQuestion 
+    } = this.props;
+
+        // prevent to try to show a module over the questions limit
+        if (currentQuestion >= questions) {
+            currentQuestion-= 1;
+        }
 
         var cards = [(
             <div key={currentQuestion}>
@@ -24,7 +38,12 @@ export class QuizQuestions extends React.Component {
         )];
         
         return (
-            <div>
+            <FullscreenGrid 
+                slideDirection="right" 
+                isVisible={isVisible} 
+                header={header}
+                footer={footer}>
+            
                 <ReactCSSTransitionGroup
                     transitionName="card"
                     transitionEnterTimeout={500}
@@ -32,7 +51,7 @@ export class QuizQuestions extends React.Component {
                     >
                     {cards}
                 </ReactCSSTransitionGroup>
-            </div>
+            </FullscreenGrid>
         );
     }
 }
