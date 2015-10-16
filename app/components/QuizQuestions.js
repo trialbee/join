@@ -1,10 +1,11 @@
 import React from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
+// import Grid from 'react-bootstrap/lib/Grid';
 
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import Button from 'react-bootstrap/lib/Button';
+// import Button from 'react-bootstrap/lib/Button';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
+import { QuizCard } from 'components/QuizCard';
 
 export class QuizQuestions extends React.Component {
 
@@ -23,7 +24,7 @@ export class QuizQuestions extends React.Component {
             onAnswer, 
             questions, 
             currentQuestion 
-    } = this.props;
+        } = this.props;
 
         // prevent to try to show a module over the questions limit
         if (currentQuestion >= questions.length) {
@@ -31,10 +32,11 @@ export class QuizQuestions extends React.Component {
         }
 
         var cards = [(
-            <div key={currentQuestion}>
-                <p>Question N. <b>{currentQuestion + 1} / {questions.length}</b></p>
-                <Button onClick={$=> onAnswer({})}>next</Button>
-            </div>
+            <QuizCard key={currentQuestion} 
+                prog={currentQuestion}
+                total={questions.length}
+                question={questions[currentQuestion]} 
+                onAnswer={onAnswer} />
         )];
         
         return (

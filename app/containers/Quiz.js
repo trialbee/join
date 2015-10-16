@@ -31,7 +31,8 @@ export class Quiz extends React.Component {
         this.footer = (
             <Button 
                 bsStyle="danger"
-                onClick={$=> dispatch(abort())} >
+                onClick={$=> dispatch(abort())}
+                block >
                 Abort!
             </Button>
         );
