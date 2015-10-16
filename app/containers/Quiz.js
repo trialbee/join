@@ -2,7 +2,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { stop as stopQuiz } from 'services/quiz-service';
+import {
+    answer,
+    abort
+} from 'services/quiz-service';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import Button from 'react-bootstrap/lib/Button';
@@ -11,32 +14,37 @@ import Button from 'react-bootstrap/lib/Button';
 @connect(s => s)
 export class Quiz extends React.Component {
 
-    render() {
-        var { dispatch, app } = this.props;
+    componentWillMount() {
 
-        var abortBtn = (
+        var { dispatch } = this.props;
+
+        this.header = (
+            <h3>Quiz</h3>
+        );
+
+        this.footer = (
             <Button 
                 bsStyle="danger"
-                onClick={$=> dispatch(stopQuiz())} >
+                onClick={$=> dispatch(abort())} >
                 Abort!
             </Button>
         );
+    }
 
-        var cnt = [];
-        for (var i=0; i<100; i++) {
-            cnt.push(<p key={i}>{i}</p>);
-        }
+    render() {
+        var { dispatch, app, quiz } = this.props;
+        var { header, footer } = this;
 
         return (
             <FullscreenGrid 
                 slideDirection="right" 
                 isVisible={app.isPlaying} 
-                header={<h3>Quiz</h3>}
-                footer={abortBtn}>
+                header={header}
+                footer={footer}>
 
                 
-                <p>content of the window</p>
-                {cnt}
+                <p>Question N. <b>{quiz.currentQuestion + 1} / {quiz.questions}</b></p>
+                <Button onClick={$=> dispatch(answer())}>next</Button>
 
 
             </FullscreenGrid>
