@@ -1,5 +1,5 @@
 {
-  "firebase": "pushups-game",
+  "firebase": "trialbee",
   "public": "./dist",
   "ignore": [
     "firebase.json",

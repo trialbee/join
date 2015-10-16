@@ -26,10 +26,10 @@ module.exports = {
             path.join(__dirname, 'app'),
         ]
     },
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
-    },
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM'
+    // },
     module: {
         loaders: [
             {
