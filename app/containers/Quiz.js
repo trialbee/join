@@ -60,7 +60,6 @@ export class Quiz extends React.Component {
 
         return (
             <div>
-                
                 <QuizQuestions {...quiz}
                     isVisible={showQuestions}
                     header={header}

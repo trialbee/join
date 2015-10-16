@@ -3,7 +3,7 @@ const __DEBUG__ = true;
 
 // Twitter Bootstrap is included via HTML
 require('./index.scss');
-require('./assets/animate.css');
+// require('./assets/animate.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -14,10 +14,10 @@ import { makeStore } from 'utils/store';
 var Main = require(__DEBUG__ ? 'utils/main-debug' : 'utils/main').Main;
 
 var store = makeStore(__DEBUG__, {
-    // app: {
-    //     isPlaying: true,
-    //     isThanking: false
-    // },
+    app: {
+        isPlaying: true,
+        isThanking: false
+    },
     // quiz: {
     //     currentQuestion: 3,
     //     questions: 3,
@@ -30,7 +30,3 @@ ReactDOM.render((
         app={App} 
         store={store} />
 ), document.getElementById('app'));
-
-// setTimeout(function() {
-//     store.dispatch({type:'app@setThankyourStatus',value:false});
-// }, 1000);

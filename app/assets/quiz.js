@@ -3,7 +3,8 @@ export const frontend = [{
     id: 'name',
     type: 'text',
     question: 'What\'s your name?',
-    rule: [{
+    placeholder: 'fullname is better',
+    rules: [{
         type: 'notEmpty',
         msg: 'Value can not be empty'
     }]
