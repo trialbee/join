@@ -7,15 +7,18 @@ import {
     abort
 } from 'services/quiz-service';
 
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import Button from 'react-bootstrap/lib/Button';
-// import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+
+import { QuizQuestions } from 'components/QuizQuestions';
+import { QuizResults } from 'components/QuizResults';
 
 @connect(s => s)
 export class Quiz extends React.Component {
 
+    // cache header and footer
     componentWillMount() {
-
         var { dispatch } = this.props;
 
         this.header = (
@@ -32,22 +35,30 @@ export class Quiz extends React.Component {
     }
 
     render() {
-        var { dispatch, app, quiz } = this.props;
         var { header, footer } = this;
+        var { dispatch, app, quiz } = this.props;
+        var { questions, currentQuestion } = quiz;
+
+        var content;
+        if (currentQuestion < questions) {
+            content = (
+                <QuizQuestions {...quiz} 
+                    onAnswer={data => dispatch(answer(data))} />
+            );
+        } else {
+            content = (
+                <QuizResults {...quiz}
+                    onConfirm={$=> dispatch(abort())} />
+            );
+        }
 
         return (
             <FullscreenGrid 
                 slideDirection="right" 
                 isVisible={app.isPlaying} 
                 header={header}
-                footer={footer}>
-
-                
-                <p>Question N. <b>{quiz.currentQuestion + 1} / {quiz.questions}</b></p>
-                <Button onClick={$=> dispatch(answer())}>next</Button>
-
-
-            </FullscreenGrid>
+                footer={footer}
+                children={content} />
         );
     }
 }

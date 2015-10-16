@@ -9,15 +9,14 @@ import {
 
 export function start() {
     return (dispatch, getState) => {
-        dispatch(setQuizStatus(true));
         dispatch(resetQuiz());
+        dispatch(setQuizStatus(true));
     };
 }
 
 export function abort() {
     return (dispatch, getState) => {
         dispatch(setQuizStatus(false));
-        dispatch(resetQuiz());
     };
 }
 
@@ -29,7 +28,7 @@ export function answer(payload = {}) {
         var nextQuestion = quiz.currentQuestion + 1;
         dispatch(addAnswer(payload));
 
-        if (nextQuestion < quiz.questions) {
+        if (nextQuestion <= quiz.questions) {
             dispatch(setCurrentQuestion(nextQuestion));
         } else {
             dispatch(abort());

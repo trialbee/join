@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { initFirebase } from 'services/firebase-service';
 
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-
 import { Home } from 'containers/Home';
 import { Quiz } from 'containers/Quiz';
 

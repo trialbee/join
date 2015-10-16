@@ -4,20 +4,20 @@
 $curve: cubic-bezier(0.550, 0.055, 0.675, 0.190);
 $duration: 0.3s;
 
-.card-from-right-enter {
+.card-enter {
     @include translate3d(100%, 0, 0);
 }
 
-.card-from-right-enter.card-from-right-enter-active {
+.card-enter.card-enter-active {
     @include translate(0, 0);
     @include transition(transform $duration $curve);
 }
 
-.card-from-right-leave {
+.card-leave {
     @include translate(0, 0);
 }
 
-.card-from-right-leave.card-from-right-leave-active {
+.card-leave.card-leave-active {
     @include translate3d(-100%, 0, 0);
     @include transition(transform $duration $curve);
 }
