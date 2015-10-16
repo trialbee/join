@@ -55,7 +55,7 @@ export class Quiz extends React.Component {
         var { questions, currentQuestion } = quiz;
         
         var showQuestions = app.isPlaying;
-        var showResults = currentQuestion >= questions;
+        var showResults = currentQuestion >= questions.length;
 
         return (
             <div>

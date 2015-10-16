@@ -26,13 +26,13 @@ export class QuizQuestions extends React.Component {
     } = this.props;
 
         // prevent to try to show a module over the questions limit
-        if (currentQuestion >= questions) {
+        if (currentQuestion >= questions.length) {
             currentQuestion-= 1;
         }
 
         var cards = [(
             <div key={currentQuestion}>
-                <p>Question N. <b>{currentQuestion + 1} / {questions}</b></p>
+                <p>Question N. <b>{currentQuestion + 1} / {questions.length}</b></p>
                 <Button onClick={$=> onAnswer({})}>next</Button>
             </div>
         )];

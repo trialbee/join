@@ -26,10 +26,12 @@ export function abort() {
 export function answer(payload = {}) {
     return (dispatch, getState) => {
         var { quiz } = getState();
-        var nextQuestion = quiz.currentQuestion + 1;
-        dispatch(addAnswer(payload));
+        var { questions, currentQuestion } = quiz;
 
-        if (nextQuestion <= quiz.questions) {
+        var nextQuestion = currentQuestion + 1;
+        dispatch(addAnswer(questions[currentQuestion].id, payload));
+
+        if (nextQuestion <= questions.length) {
             dispatch(setCurrentQuestion(nextQuestion));
         } else {
             dispatch(abort());

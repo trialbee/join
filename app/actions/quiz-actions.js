@@ -10,9 +10,10 @@ export function setCurrentQuestion(questionIndex) {
     };
 }
 
-export function addAnswer(answer) {
+export function addAnswer(questionId, answer) {
     return {
         type: ADD_ANSWER,
+        questionId,
         answer
     };
 }

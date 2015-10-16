@@ -5,10 +5,12 @@ import {
     RESET
 } from 'actions/quiz-actions';
 
+import { frontend } from 'assets/quiz.js';
+
 export const initialState = {
     currentQuestion: 0,
-    questions: 3,
-    answers: []
+    questions: frontend,
+    answers: {}
 }
 
 export function quizReducer(state = initialState, action) {
@@ -18,8 +20,10 @@ export function quizReducer(state = initialState, action) {
                 currentQuestion: action.questionIndex
             };
         case ADD_ANSWER:
+            var answers = { ...state.answers };
+            answers[action.questionId] = action.answer;
             return { ...state,
-                answers: [...state.answers, action.answer]
+                answers: answers
             };
         case RESET: {
             return { ...state,
