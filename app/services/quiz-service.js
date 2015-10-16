@@ -17,6 +17,7 @@ export function start() {
 export function abort() {
     return (dispatch, getState) => {
         dispatch(setQuizStatus(false));
+        setTimeout($=> dispatch(resetQuiz()), 250);
     };
 }
 

@@ -7,7 +7,6 @@ import {
     abort
 } from 'services/quiz-service';
 
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import Button from 'react-bootstrap/lib/Button';
 
@@ -39,26 +38,30 @@ export class Quiz extends React.Component {
         var { dispatch, app, quiz } = this.props;
         var { questions, currentQuestion } = quiz;
 
-        var content;
-        if (currentQuestion < questions) {
+        var content, results;
+        var showQuestions = currentQuestion < questions;
+        var showResults = !showQuestions;
+
+        if (showQuestions) {
             content = (
                 <QuizQuestions {...quiz} 
                     onAnswer={data => dispatch(answer(data))} />
             );
-        } else {
-            content = (
-                <QuizResults {...quiz}
-                    onConfirm={$=> dispatch(abort())} />
-            );
         }
 
         return (
-            <FullscreenGrid 
-                slideDirection="right" 
-                isVisible={app.isPlaying} 
-                header={header}
-                footer={footer}
-                children={content} />
+            <div>
+                <FullscreenGrid 
+                    slideDirection="right" 
+                    isVisible={app.isPlaying} 
+                    header={header}
+                    footer={footer}
+                    children={content} />
+                    
+                <QuizResults {...quiz}
+                    isVisible={showResults}
+                    onConfirm={$=> dispatch(abort())} />
+            </div>
         );
     }
 }

@@ -42,6 +42,10 @@ $headingHeight: 50px;
         @include translate(100%, 0);
     }
 
+    &--bottom {
+        @include translate(0, 100%);
+    }
+
     &--active {
         @include translate(0, 0);   
     }

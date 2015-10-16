@@ -19,6 +19,7 @@ export class QuizQuestions extends React.Component {
         var cards = [(
             <div key={currentQuestion}>
                 <p>Question N. <b>{currentQuestion + 1} / {questions}</b></p>
+                <Button onClick={$=> onAnswer({})}>next</Button>
             </div>
         )];
         
@@ -31,8 +32,6 @@ export class QuizQuestions extends React.Component {
                     >
                     {cards}
                 </ReactCSSTransitionGroup>
-                                
-                <Button onClick={$=> onAnswer({})}>next</Button>
             </div>
         );
     }
