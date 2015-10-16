@@ -9,9 +9,12 @@ import Button from 'react-bootstrap/lib/Button';
 @connect(s => s.app)
 export class Home extends React.Component {
     render() {
-        var { dispatch } = this.props;
+        var { dispatch, isPlaying } = this.props;
         return (
-            <FullscreenGrid>
+            <FullscreenGrid 
+                slideDirection="left" 
+                isVisible={!isPlaying} >
+                
                 <h3>TrialBee is Hiring!</h3>
                 <hr />
                 <Button 

@@ -17,24 +17,10 @@ export class App extends React.Component {
     }
 
     render() {
-        var { dispatch, app, quiz } = this.props;
-
-        var items = [];
-
-        if (!app.isPlaying) {
-            items.push(<Home key="home" />);
-        } else {
-            items.push(<Quiz key="quiz" />);
-        }
-
         return (
             <div>
-                <ReactCSSTransitionGroup
-                    transitionName="card"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500} >
-                    {items}
-                </ReactCSSTransitionGroup>
+                <Quiz />
+                <Home />
             </div>
         );
     }
