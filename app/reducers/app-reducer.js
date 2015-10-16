@@ -1,8 +1,12 @@
 
-import { SET_QUIZ_STATUS } from 'actions/app-actions';
+import {
+    SET_QUIZ_STATUS,
+    SET_THANKYOU_STATUS
+} from 'actions/app-actions';
 
 export const initialState = {
-    isPlaying: false
+    isPlaying: false,
+    isThanking: false
 };
 
 export function appReducer(state = initialState, action) {
@@ -10,6 +14,10 @@ export function appReducer(state = initialState, action) {
         case SET_QUIZ_STATUS:
             return { ...state,
                 isPlaying: action.value
+            };
+        case SET_THANKYOU_STATUS:
+            return { ...state,
+                isThanking: action.value
             };
         default:
             return state;

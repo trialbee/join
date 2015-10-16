@@ -13,19 +13,24 @@ import { makeStore } from 'utils/store';
 
 var Main = require(__DEBUG__ ? 'utils/main-debug' : 'utils/main').Main;
 
-var initialState = {
-    // app: {
-    //     isPlaying: true
-    // },
-    // quiz: {
-    //     currentQuestion: 3,
-    //     questions: 3,
-    //     answers: []
-    // }
-};
+var store = makeStore(__DEBUG__, {
+    app: {
+        isPlaying: true,
+        isThanking: false
+    },
+    quiz: {
+        currentQuestion: 3,
+        questions: 3,
+        answers: []
+    }
+});
 
 ReactDOM.render((
     <Main 
         app={App} 
-        store={makeStore(__DEBUG__, initialState)} />
+        store={store} />
 ), document.getElementById('app'));
+
+// setTimeout(function() {
+//     store.dispatch({type:'app@setThankyourStatus',value:false});
+// }, 1000);
