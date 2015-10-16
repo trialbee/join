@@ -1,0 +1,21 @@
+
+@import './mixins_css3';
+
+.card-enter {
+    @include translate3d(100%, 0, 0);
+}
+
+.card-enter.card-enter-active {
+    @include translate(0, 0);
+    @include transition(transform 0.3s cubic-bezier(0.550, 0.055, 0.675, 0.190));
+}
+
+.card-leave {
+    @include translate(0, 0);
+}
+
+.card-leave.card-leave-active {
+    @include translate3d(-100%, 0, 0);
+    @include transition(transform 0.3s cubic-bezier(0.550, 0.055, 0.675, 0.190));
+}
+
