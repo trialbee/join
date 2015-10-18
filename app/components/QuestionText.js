@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import Input from 'react-bootstrap/lib/Input';
+import Panel from 'react-bootstrap/lib/Panel';
 
 import { validate } from 'utils/validations';
 
@@ -41,6 +42,11 @@ export class QuestionText extends React.Component {
             bsStyle = 'error';
         }
 
+        if (errors.length) {
+            errors = errors.map((error, i) => <p key={i}>{error}</p>);
+            errors = <Panel header="Errors found!" bsStyle="danger">{errors}</Panel>;
+        }
+
         return (
             <div>
                 <h3>{question}</h3>
@@ -52,6 +58,7 @@ export class QuestionText extends React.Component {
                     onChange={this.updateValue}
                     onFocus={this.updateValue} />
                 <Button onClick={this.answer}>next</Button>
+                {errors}
             </div>
         );
     }
