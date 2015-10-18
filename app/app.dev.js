@@ -30,3 +30,12 @@ ReactDOM.render((
         app={App} 
         store={store} />
 ), document.getElementById('app'));
+
+// var foo = true;
+// setInterval($=> {
+//     foo = !foo;
+//     store.dispatch({
+//         type: 'quiz@setCanAnswer',
+//         value: foo
+//     })
+// }, 1000);

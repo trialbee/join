@@ -2,6 +2,7 @@
 export const SET_CURRENT_QUESTION = 'quiz@setCurrentQuestion';
 export const ADD_ANSWER = 'quiz@addAnswer';
 export const RESET = 'quiz@reset';
+export const SET_CAN_ANSWER = 'quiz@setCanAnswer';
 
 export function setCurrentQuestion(questionIndex) {
     return {
@@ -21,5 +22,12 @@ export function addAnswer(questionId, answer) {
 export function reset() {
     return {
         type: RESET
+    };
+}
+
+export function  setCanAnswer(value) {
+    return {
+        type: SET_CAN_ANSWER,
+        value: !!value
     };
 }

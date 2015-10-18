@@ -7,13 +7,23 @@ import { validate } from 'utils/validations';
 
 export class QuestionText extends React.Component {
 
+    static defaultProps = {
+        setCanAnswer: $=> {},
+        onAnswer: $=> {}
+    }
+
     state = {
         value: '',
         isValid: null,
         errors: []
     }
 
+    // componentWillMount() {
+    //     this.props.setCanAnswer(false);
+    // }
+
     updateValue = e => {
+        // this.props.setCanAnswer(e.target.value.length > 0);
         this.setState({
             value: e.target.value,
             isValid: null,
@@ -26,8 +36,12 @@ export class QuestionText extends React.Component {
         this.setState({isValid:isValid, errors:errors});
 
         if (isValid) {
-            setTimeout($=> this.props.answer(this.state.value), 500);
+            setTimeout($=> this.props.onAnswer(this.state.value), 500);
         }
+    }
+
+    requestAnswer = $=> {
+        this.answer();
     }
 
     render() {
@@ -57,7 +71,6 @@ export class QuestionText extends React.Component {
                     bsStyle={bsStyle}
                     onChange={this.updateValue}
                     onFocus={this.updateValue} />
-                <Button onClick={this.answer}>next</Button>
                 {errors}
             </div>
         );

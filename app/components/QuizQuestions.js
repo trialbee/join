@@ -1,8 +1,5 @@
 import React from 'react';
-// import Grid from 'react-bootstrap/lib/Grid';
-
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-// import Button from 'react-bootstrap/lib/Button';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import { QuizCard } from 'components/QuizCard';
@@ -12,8 +9,14 @@ export class QuizQuestions extends React.Component {
     static defaultProps = {
         questions: 0,
         currentQuestion: 0,
-        onAnswer: data => {}
+        canAnswer: true,
+        setCanAnswer: $=> {},
+        onAnswer: $=> {}
     };
+
+    requestAnswer = $=> {
+        this.refs.card.requestAnswer();
+    }
 
     render() {
 
@@ -21,6 +24,8 @@ export class QuizQuestions extends React.Component {
             header,
             footer,
             isVisible,
+            canAnswer,
+            setCanAnswer,
             onAnswer, 
             questions, 
             currentQuestion 
@@ -33,9 +38,12 @@ export class QuizQuestions extends React.Component {
 
         var cards = [(
             <QuizCard key={currentQuestion} 
+                ref="card"
                 prog={currentQuestion}
                 total={questions.length}
                 question={questions[currentQuestion]} 
+                canAnswer={canAnswer}
+                setCanAnswer={setCanAnswer}
                 onAnswer={onAnswer} />
         )];
         

@@ -59,6 +59,10 @@ $headingHeight: 50px;
             height: $headingHeight;
             line-height: $headingHeight;
         }
+
+        & .btn {
+            margin-top: 10px;
+        }
     }
 
     &__footer {

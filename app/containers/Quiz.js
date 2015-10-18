@@ -9,33 +9,25 @@ import {
 
 import { saveProfile } from 'services/firebase-service';
 import { setThankyourStatus } from 'actions/app-actions';
+import { setCanAnswer } from 'actions/quiz-actions';
 
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Fade from 'react-bootstrap/lib/Fade';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
-import Button from 'react-bootstrap/lib/Button';
-
 import { QuizQuestions } from 'components/QuizQuestions';
 import { QuizResults } from 'components/QuizResults';
 
 @connect(s => s)
 export class Quiz extends React.Component {
 
-    // cache header and footer
-    componentWillMount() {
-        var { dispatch } = this.props;
-
-        this.header = (
-            <h3>Quiz</h3>
-        );
-
-        this.footer = (
-            <Button 
-                bsStyle="danger"
-                onClick={$=> dispatch(abort())}
-                block >
-                Abort!
-            </Button>
-        );
+    requestAnswer = e => {
+        e.preventDefault();
+        e.target.blur();
+        this.refs.questions.requestAnswer();
     }
 
     saveProfile = data => {
@@ -51,19 +43,47 @@ export class Quiz extends React.Component {
     }
 
     render() {
-        var { header, footer } = this;
         var { dispatch, app, quiz } = this.props;
-        var { questions, currentQuestion } = quiz;
+        var { questions, currentQuestion, canAnswer } = quiz;
         
         var showQuestions = app.isPlaying;
         var showResults = currentQuestion >= questions.length;
 
+        var header = (
+            <Row>
+                <Col xs={6}>
+                    <h3>Quiz</h3>
+                </Col>
+                <Col xs={6} className="text-right">
+                    <Fade in={canAnswer}>
+                        <Button 
+                            bsStyle="primary" 
+                            onClick={this.requestAnswer} >
+                            <Glyphicon glyph="chevron-right" />
+                        </Button>
+                    </Fade>
+                </Col>
+            </Row>
+        );
+
+        var footer = (
+            <Button 
+                bsStyle="danger"
+                onClick={$=> dispatch(abort())}
+                block >
+                Abort!
+            </Button>
+        );
+
         return (
             <div>
                 <QuizQuestions {...quiz}
+                    ref="questions"
                     isVisible={showQuestions}
                     header={header}
                     footer={footer}
+                    canAnswer={canAnswer}
+                    setCanAnswer={value => dispatch(setCanAnswer(value))}
                     onAnswer={data => dispatch(answer(data))} />
                     
                 <QuizResults {...quiz}

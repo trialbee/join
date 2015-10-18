@@ -2,7 +2,8 @@
 import {
     SET_CURRENT_QUESTION,
     ADD_ANSWER,
-    RESET
+    RESET,
+    SET_CAN_ANSWER
 } from 'actions/quiz-actions';
 
 import { frontend } from 'assets/quiz.js';
@@ -10,7 +11,8 @@ import { frontend } from 'assets/quiz.js';
 export const initialState = {
     currentQuestion: 0,
     questions: frontend,
-    answers: {}
+    answers: {},
+    canAnswer: true
 }
 
 export function quizReducer(state = initialState, action) {
@@ -25,12 +27,15 @@ export function quizReducer(state = initialState, action) {
             return { ...state,
                 answers: answers
             };
-        case RESET: {
+        case RESET:
             return { ...state,
                 currentQuestion: 0,
                 answers: []
+            };
+        case SET_CAN_ANSWER: 
+            return { ...state,
+                canAnswer: action.value
             }
-        }
         default:
             return state;
     }
