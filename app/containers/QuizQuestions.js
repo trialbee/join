@@ -1,6 +1,18 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import { connect } from 'react-redux';
 
+// ACTIONS
+
+import {
+    answer,
+    abort
+} from 'services/quiz-service';
+
+import { setCanAnswer } from 'actions/quiz-actions';
+
+// COMPONENTS
+
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
@@ -10,18 +22,8 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import { QuizCard } from 'components/QuizCard';
 
+@connect(s => s)
 export class QuizQuestions extends React.Component {
-
-    static defaultProps = {
-        isVisible: false,
-        canAnswer: true,
-        setCanAnswer: $=> {},
-        onAnswer: $=> {},
-        onAbort: $=> {},
-        // quiz data
-        questions: 0,
-        currentQuestion: 0
-    };
 
     requestAnswer = e => {
         e.preventDefault();
@@ -31,21 +33,13 @@ export class QuizQuestions extends React.Component {
 
     render() {
 
-        var {
-            header,
-            footer,
-            isVisible,
-            canAnswer,
-            setCanAnswer,
-            onAnswer, 
-            onAbort,
-            questions, 
-            currentQuestion 
-        } = this.props;
-
+        var { dispatch, app, quiz } = this.props;
+        var { isPlaying } = app;
+        var { canAnswer, questions, currentQuestion } = quiz;
+            
         // prevent to try to show a module over the questions limit
         if (currentQuestion >= questions.length) {
-            currentQuestion-= 1;
+            currentQuestion = questions.length - 1;
         }
 
         var header = (
@@ -68,7 +62,7 @@ export class QuizQuestions extends React.Component {
         var footer = (
             <Button 
                 bsStyle="danger"
-                onClick={onAbort}
+                onClick={$=> dispatch(abort())}
                 block >
                 Abort!
             </Button>
@@ -81,14 +75,14 @@ export class QuizQuestions extends React.Component {
                 total={questions.length}
                 question={questions[currentQuestion]} 
                 canAnswer={canAnswer}
-                setCanAnswer={setCanAnswer}
-                onAnswer={onAnswer} />
+                setCanAnswer={value => dispatch(setCanAnswer(value))}
+                onAnswer={data => dispatch(answer(data))} />
         )];
         
         return (
             <FullscreenGrid 
                 slideDirection="right" 
-                isVisible={isVisible} 
+                isVisible={isPlaying} 
                 header={header}
                 footer={footer}>
             

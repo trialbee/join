@@ -9,7 +9,7 @@ export class ThankyouPage extends React.Component {
 
         return (
             <FullscreenGrid
-                slideDirection="bottom" 
+                slideDirection="right" 
                 isVisible={isVisible}>
                 
                 <div className="text-center" style={{marginTop:'30%'}}>

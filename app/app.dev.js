@@ -14,14 +14,14 @@ import { makeStore } from 'utils/store';
 var Main = require(__DEBUG__ ? 'utils/main-debug' : 'utils/main').Main;
 
 var store = makeStore(__DEBUG__, {
-    app: {
-        isPlaying: true,
-        isThanking: false
-    },
+    // app: {
+    //     isPlaying: true,
+    //     isThanking: false
+    // },
     // quiz: {
     //     currentQuestion: 3,
-    //     questions: 3,
-    //     answers: []
+    //     // questions: ,
+    //     // answers: []
     // }
 });
 
@@ -39,3 +39,11 @@ ReactDOM.render((
 //         value: foo
 //     })
 // }, 1000);
+
+// setTimeout($=> {
+//     console.log('quiz@setCurrentQuestion');
+    // store.dispatch({
+    //     type: 'quiz@setCurrentQuestion',
+    //     questionIndex: 2
+    // });
+// }, 50);

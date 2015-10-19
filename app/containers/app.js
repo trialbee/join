@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { initFirebase } from 'services/firebase-service';
 
 import { Home } from 'containers/Home';
-import { Quiz } from 'containers/Quiz';
+import { QuizQuestions } from 'containers/QuizQuestions';
+import { QuizResults } from 'containers/QuizResults';
 
 import { ThankyouPage } from 'components/ThankyouPage';
 
@@ -22,7 +23,8 @@ export class App extends React.Component {
 
         return (
             <div>
-                <Quiz />
+                <QuizQuestions />
+                <QuizResults />
                 <Home />
                 <ThankyouPage isVisible={app.isThanking} />
             </div>

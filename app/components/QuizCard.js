@@ -25,6 +25,12 @@ export class QuizCard extends React.Component {
 
     render() {
         var { question } = this.props;
+
+        if (question === undefined) {
+            console.warn("PROBLEM!");
+            return null;
+        }
+        
         var Question = questionTypes[question.type];
 
         return (
