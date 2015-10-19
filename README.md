@@ -1,7 +1,7 @@
-# PushupsGame
+# TrialbeeHiring
 
-- [GitHub Repository &raquo;](https://github.com/marcopeg/pushups-game)
-- [Play Online &raquo;](https://pushups-game.firebaseapp.com)
+- [GitHub Repository &raquo;](https://github.com/marcopeg/trialbee-hiring)
+- [Play Online &raquo;](https://trialbee.firebaseapp.com)
 
 
 ## Development Setup
