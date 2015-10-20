@@ -10,9 +10,9 @@ import { setThankyourStatus } from 'actions/app-actions';
 // COMPONENTS
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
-import Button from 'react-bootstrap/lib/Button';
 
 import { PersonalDataForm } from 'components/PersonalDataForm';
+import Button from 'components/Button';
 
 @connect(s => s)
 export class QuizResults extends React.Component {
@@ -45,8 +45,8 @@ export class QuizResults extends React.Component {
 
         var footer = (
             <div className="text-right">
-                <Button bsStyle="link" onClick={$=> dispatch(abort())}>cancel</Button>
-                <Button bsStyle="success" onClick={this.save}>Apply!</Button>
+                <Button onTap={$=> dispatch(abort())} bsStyle="link">cancel</Button>
+                <Button onTap={this.save} bsStyle="success">Apply!</Button>
             </div>
         );
         

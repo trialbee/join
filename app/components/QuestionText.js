@@ -36,7 +36,7 @@ export class QuestionText extends React.Component {
         this.setState({isValid:isValid, errors:errors});
 
         if (isValid) {
-            setTimeout($=> this.props.onAnswer(this.state.value), 500);
+            setTimeout($=> this.props.onAnswer(this.state.value), 50);
         }
     }
 

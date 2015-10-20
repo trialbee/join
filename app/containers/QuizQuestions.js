@@ -15,12 +15,12 @@ import { setCanAnswer } from 'actions/quiz-actions';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
 import Fade from 'react-bootstrap/lib/Fade';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import { QuizCard } from 'components/QuizCard';
+import Button from 'components/Button';
 
 @connect(s => s)
 export class QuizQuestions extends React.Component {
@@ -49,9 +49,8 @@ export class QuizQuestions extends React.Component {
                 </Col>
                 <Col xs={6} className="text-right">
                     <Fade in={canAnswer}>
-                        <Button 
-                            bsStyle="primary" 
-                            onClick={this.requestAnswer} >
+                        <Button onTap={this.requestAnswer}
+                            bsStyle="primary" >
                             <Glyphicon glyph="chevron-right" />
                         </Button>
                     </Fade>
@@ -60,9 +59,8 @@ export class QuizQuestions extends React.Component {
         );
 
         var footer = (
-            <Button 
+            <Button onTap={$=> dispatch(abort())}
                 bsStyle="danger"
-                onClick={$=> dispatch(abort())}
                 block >
                 Abort!
             </Button>

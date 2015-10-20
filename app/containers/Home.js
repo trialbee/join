@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { start as startQuiz } from 'services/quiz-service';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
-import Button from 'react-bootstrap/lib/Button';
+import Button from 'components/Button';
 
 @connect(s => s.app)
 export class Home extends React.Component {
@@ -19,7 +19,7 @@ export class Home extends React.Component {
                 <hr />
                 <Button 
                     bsStyle="primary"
-                    onClick={$=> dispatch(startQuiz())}
+                    onTap={$=> dispatch(startQuiz())}
                     block>Apply!</Button>
             </FullscreenGrid>
         );
