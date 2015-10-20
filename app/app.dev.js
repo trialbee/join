@@ -31,19 +31,7 @@ ReactDOM.render((
         store={store} />
 ), document.getElementById('app'));
 
-// var foo = true;
-// setInterval($=> {
-//     foo = !foo;
-//     store.dispatch({
-//         type: 'quiz@setCanAnswer',
-//         value: foo
-//     })
-// }, 1000);
-
-// setTimeout($=> {
-//     console.log('quiz@setCurrentQuestion');
-    // store.dispatch({
-    //     type: 'quiz@setCurrentQuestion',
-    //     questionIndex: 2
-    // });
-// }, 50);
+// fake initial state
+setTimeout($=> {
+    store.dispatch(require('services/quiz-service').start());
+}, 50);

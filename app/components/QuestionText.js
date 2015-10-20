@@ -5,11 +5,14 @@ import Panel from 'react-bootstrap/lib/Panel';
 
 import { validate } from 'utils/validations';
 
+function __noop() {}
+
 export class QuestionText extends React.Component {
 
     static defaultProps = {
-        setCanAnswer: $=> {},
-        onAnswer: $=> {}
+        setCanAnswer: __noop,
+        setCardStatus: __noop,
+        onAnswer: __noop
     }
 
     state = {
@@ -29,6 +32,8 @@ export class QuestionText extends React.Component {
             isValid: null,
             errors: []
         });
+
+        this.props.setCardStatus(null);
     }
 
     answer = $=> {
@@ -36,8 +41,10 @@ export class QuestionText extends React.Component {
         this.setState({isValid:isValid, errors:errors});
 
         if (isValid) {
-            setTimeout($=> this.props.onAnswer(this.state.value), 50);
+            setTimeout($=> this.props.onAnswer(this.state.value), 400);
         }
+
+        this.props.setCardStatus(isValid);
     }
 
     requestAnswer = $=> {

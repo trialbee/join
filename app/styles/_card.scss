@@ -33,3 +33,23 @@ $duration: 0.3s;
     @include transition(transform $duration $curve);
 }
 
+
+
+.card-wrapper {
+    margin-top: 5%;
+    border: 1px solid #333;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 2px 2px 5px #666;
+    @include transition(all $duration $curve);
+
+    .card--success & {
+        background: #287B24;
+        color: #fff;
+    }
+
+    .card--error & {
+        background: #FFDCDE;
+    }
+
+}

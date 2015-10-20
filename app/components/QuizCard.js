@@ -19,12 +19,27 @@ export class QuizCard extends React.Component {
         onAnswer: $=> {}
     }
 
+    state = {
+        cardStatus: null
+    }
+
     requestAnswer = $=> {
         this.refs.question.requestAnswer();
     }
 
+    setCardStatus = value => {
+        console.log('status', value);
+        this.setState({cardStatus: value});
+    }
+
+    componentWillMount() {
+        console.log('mount card');
+    }
+
     render() {
+        console.log('render card');
         var { question } = this.props;
+        var { cardStatus } = this.state;
 
         if (question === undefined) {
             console.warn("PROBLEM!");
@@ -33,10 +48,21 @@ export class QuizCard extends React.Component {
         
         var Question = questionTypes[question.type];
 
+        var classes = ['card'];
+        if (cardStatus !== null) {
+            classes.push(cardStatus ? 'card--success' : 'card--error');
+        }
+
         return (
-            <div className="card">
+            <div className={classes.join(' ')}>
                 <Grid>
-                    <Question {...this.props} {...question} ref="question" />
+                    <div className="card-wrapper">
+                        <Question 
+                            {...this.props} 
+                            {...question} 
+                            ref="question"
+                            setCardStatus={this.setCardStatus} />
+                    </div>
                 </Grid>
             </div>
         );

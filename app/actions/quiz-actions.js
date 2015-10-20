@@ -25,9 +25,10 @@ export function reset() {
     };
 }
 
-export function  setCanAnswer(value) {
+export function setCanAnswer(value) {
     return {
         type: SET_CAN_ANSWER,
         value: !!value
     };
 }
+

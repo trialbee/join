@@ -12,7 +12,8 @@ export const initialState = {
     currentQuestion: 0,
     questions: frontend,
     answers: {},
-    canAnswer: true
+    canAnswer: true,
+    cardStatus: null
 }
 
 export function quizReducer(state = initialState, action) {
@@ -30,7 +31,9 @@ export function quizReducer(state = initialState, action) {
         case RESET:
             return { ...state,
                 currentQuestion: 0,
-                answers: []
+                answers: [],
+                canAnswer: true,
+                cardStatus: null
             };
         case SET_CAN_ANSWER: 
             return { ...state,
