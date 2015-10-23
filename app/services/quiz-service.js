@@ -4,12 +4,13 @@ import { setQuizStatus } from 'actions/app-actions';
 import { 
     setCurrentQuestion,
     addAnswer,
+    start as startQuiz,
     reset as resetQuiz 
 } from 'actions/quiz-actions';
 
 export function start() {
     return (dispatch, getState) => {
-        dispatch(resetQuiz());
+        dispatch(startQuiz());
         dispatch(setQuizStatus(true));
     };
 }

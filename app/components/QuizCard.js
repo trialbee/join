@@ -6,6 +6,7 @@ import React from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 
 import { QuestionText } from 'components/QuestionText';
+import { Hints } from 'components/Hints';
 
 const questionTypes = {
     text: QuestionText
@@ -20,37 +21,47 @@ export class QuizCard extends React.Component {
     }
 
     state = {
-        cardStatus: null
+        cardStatus: null,
+        isShaking: false,
+        errors: 0
     }
 
     requestAnswer = $=> {
         this.refs.question.requestAnswer();
     }
 
-    setCardStatus = value => {
-        console.log('status', value);
-        this.setState({cardStatus: value});
-    }
-
-    componentWillMount() {
-        console.log('mount card');
+    setCardStatus = cardStatus => {
+        var { errors, isShaking } = this.state;
+        if (cardStatus === false) {
+            isShaking = true;
+            errors++;
+        } else {
+            isShaking = false;
+        }
+        this.setState({cardStatus, isShaking, errors});
+        setTimeout($=> this.setState({isShaking:false}), 500);
     }
 
     render() {
-        console.log('render card');
         var { question } = this.props;
-        var { cardStatus } = this.state;
-
-        if (question === undefined) {
-            console.warn("PROBLEM!");
-            return null;
-        }
+        var { hints } = question;
+        var { cardStatus, isShaking, errors } = this.state;
         
         var Question = questionTypes[question.type];
 
         var classes = ['card'];
         if (cardStatus !== null) {
             classes.push(cardStatus ? 'card--success' : 'card--error');
+        }
+        if (isShaking === true) {
+            classes.push('animated shake');
+        }
+
+        // filter visible hints
+        if (hints) {
+            hints = hints
+                .map((hint, i) => {hint.id = i; return hint })
+                .filter(hint => hint.count === errors || (hint.andup && errors > hint.count));
         }
 
         return (
@@ -62,6 +73,8 @@ export class QuizCard extends React.Component {
                             {...question} 
                             ref="question"
                             setCardStatus={this.setCardStatus} />
+
+                        <Hints hints={hints} />
                     </div>
                 </Grid>
             </div>

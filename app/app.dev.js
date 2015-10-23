@@ -3,7 +3,7 @@ const __DEBUG__ = true;
 
 // Twitter Bootstrap is included via HTML
 require('./index.scss');
-// require('./assets/animate.css');
+require('./assets/animate.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';

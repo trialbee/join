@@ -1,6 +1,7 @@
 
 export const SET_CURRENT_QUESTION = 'quiz@setCurrentQuestion';
 export const ADD_ANSWER = 'quiz@addAnswer';
+export const START = 'quiz@start';
 export const RESET = 'quiz@reset';
 export const SET_CAN_ANSWER = 'quiz@setCanAnswer';
 
@@ -16,6 +17,12 @@ export function addAnswer(questionId, answer) {
         type: ADD_ANSWER,
         questionId,
         answer
+    };
+}
+
+export function start() {
+    return {
+        type: START
     };
 }
 

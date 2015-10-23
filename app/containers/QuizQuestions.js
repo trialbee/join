@@ -32,11 +32,10 @@ export class QuizQuestions extends React.Component {
     }
 
     render() {
-
         var { dispatch, app, quiz } = this.props;
         var { isPlaying } = app;
-        var { canAnswer, questions, currentQuestion } = quiz;
-            
+        var { isActive, canAnswer, questions, currentQuestion } = quiz;
+
         // prevent to try to show a module over the questions limit
         if (currentQuestion >= questions.length) {
             currentQuestion = questions.length - 1;
@@ -66,16 +65,33 @@ export class QuizQuestions extends React.Component {
             </Button>
         );
 
-        var cards = [(
-            <QuizCard key={currentQuestion} 
+        var question = questions[currentQuestion];
+
+        var cards = (
+            <QuizCard key={question.id + currentQuestion} 
                 ref="card"
                 prog={currentQuestion}
                 total={questions.length}
-                question={questions[currentQuestion]} 
+                question={question} 
                 canAnswer={canAnswer}
                 setCanAnswer={value => dispatch(setCanAnswer(value))}
                 onAnswer={data => dispatch(answer(data))} />
-        )];
+        );
+
+        var content = (
+            <ReactCSSTransitionGroup
+                transitionName="card"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}
+                >
+                {[cards]}
+            </ReactCSSTransitionGroup>
+        );
+
+        // ugly quick fix to the re-rendering problem
+        if (!isActive) {
+            content = null;
+        }
         
         return (
             <FullscreenGrid 
@@ -83,14 +99,8 @@ export class QuizQuestions extends React.Component {
                 isVisible={isPlaying} 
                 header={header}
                 footer={footer}>
-            
-                <ReactCSSTransitionGroup
-                    transitionName="card"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
-                    >
-                    {cards}
-                </ReactCSSTransitionGroup>
+
+                {content}
             </FullscreenGrid>
         );
     }
