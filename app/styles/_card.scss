@@ -17,21 +17,23 @@ $duration: 0.5s;
 }
 
 .card-enter {
-    @include translate3d(100%, 0, 0);
+    @include transform(translate(100%, 0));
 }
 
 .card-enter.card-enter-active {
-    @include translate(0, 0);
+    @include transform(translate(0, 0));
     @include transition(transform $duration $curve);
 }
 
 .card-leave {
-    @include translate(0, 0);
+    opacity: 1;
+    @include transform(translate(0, 0) scale(1));
 }
 
 .card-leave.card-leave-active {
-    @include translate3d(-100%, 0, 0);
-    @include transition(transform $duration $curve);
+    opacity: 0.01;
+    @include transform(translate(-70%, 0) scale(0.85));
+    @include transition(all $duration $curve);
 }
 
 

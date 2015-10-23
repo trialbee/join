@@ -4,10 +4,10 @@ export const frontend = [{
     type: 'text',
     question: 'Describe yourself briefly:',
     placeholder: 'fullname is better',
-    rules: [{
-        type: 'notEmpty',
-        // msg: 'Value can not be empty'
-    }],
+    // rules: [{
+    //     type: 'notEmpty',
+    //     // msg: 'Value can not be empty'
+    // }],
     hints: [{
         count: 2,
         msg: 'Open Github and search...'

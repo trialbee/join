@@ -39,7 +39,7 @@ export class QuizCard extends React.Component {
             isShaking = false;
         }
         this.setState({cardStatus, isShaking, errors});
-        setTimeout($=> this.setState({isShaking:false}), 500);
+        setTimeout($=> this.setState({isShaking:false}), 300);
     }
 
     render() {
