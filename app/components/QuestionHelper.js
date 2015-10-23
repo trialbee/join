@@ -10,7 +10,7 @@ export class QuestionHelper extends React.Component {
         var { text } = this.props;
 
         if (text) {
-            text = <p>{text}</p>
+            text = <p dangerouslySetInnerHTML={{__html:text}} />
         }
 
         return text;

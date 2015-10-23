@@ -28,7 +28,8 @@ export class QuestionInfo extends React.Component {
     }
 
     answer = value => {
-        setTimeout($=> this.props.onAnswer());
+        this.props.setCardStatus(true);
+        setTimeout($=> this.props.onAnswer(), 300);
     }
 
     render() {

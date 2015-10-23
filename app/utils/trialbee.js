@@ -2,7 +2,7 @@
 // human (almost) readable version
 var profileTokens = [
     '^passionate ',
-    '((js|javascript|ror|ruby|php))+ ',
+    '((web|js|javascript|ror|ruby|php))+ ',
     '((senior|junior) )?',
     '(software )?(engineer|dev(eloper)?)'
 ];

@@ -8,13 +8,15 @@ import Grid from 'react-bootstrap/lib/Grid';
 import { QuestionText } from 'components/QuestionText';
 import { QuestionMulti } from 'components/QuestionMulti';
 import { QuestionInfo } from 'components/QuestionInfo';
+import { QuestionBool } from 'components/QuestionBool';
 
 import { Hints } from 'components/Hints';
 
 const questionTypes = {
     text: QuestionText,
     multi: QuestionMulti,
-    info: QuestionInfo
+    info: QuestionInfo,
+    bool: QuestionBool
 };
 
 export class QuizCard extends React.Component {

@@ -46,7 +46,7 @@ export class QuestionText extends React.Component {
         this.setState({isValid:isValid, errors:errors});
 
         if (isValid) {
-            setTimeout($=> this.props.onAnswer(this.state.value), 400);
+            setTimeout($=> this.props.onAnswer(this.state.value), 300);
         }
 
         this.props.setCardStatus(isValid);
