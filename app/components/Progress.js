@@ -15,9 +15,9 @@ export class Progress extends React.Component {
 
         // min progress
         if (progress === 0) {
-            progress = 1 / total * 30;
+            progress = (1 / total * 100) / 2;
         } else if (current + 1 === total) {
-            progress = current / total * 170;
+            progress += (100 - progress) / 2;
         }
 
         var bsStyle="info";

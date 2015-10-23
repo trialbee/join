@@ -32,23 +32,29 @@ $headingHeight: 60px;
     background: linear-gradient(to bottom,  #00233e 0%,#053961 50%,#063c65 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00233e', endColorstr='#063c65',GradientType=0 ); /* IE6-9 */
 
-
-    @include transition(transform $duration $curve);
+    
+    opacity: 0;
+    @include transition(opacity $duration $curve);
 
     &--left {
-        @include translate(-100%, 0);
+        // @include translate(-100%, 0);
     }
 
     &--right {
-        @include translate(100%, 0);
+        // @include translate(100%, 0);
     }
 
     &--bottom {
-        @include translate(0, 100%);
+        // @include translate(0, 100%);
     }
 
     &--active {
-        @include translate(0, 0);   
+        // @include translate(0, 0);   
+        opacity: 1;
+    }
+
+    &--hidden {
+        @include translate(-100%, -100%);
     }
 
     &__header {

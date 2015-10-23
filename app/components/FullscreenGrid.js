@@ -11,9 +11,32 @@ export class FullscreenGrid extends React.Component {
         footer: null
     };
 
+    state = {
+        isHidden: true,
+        isTransitioning: false
+    }
+
+    componentWillMount() {
+        if (this.props.isVisible) {
+            this.setState({isHidden:false});
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+        if (nextProps.isVisible && this.state.isHidden) {
+            this.setState({isHidden: false});
+        }
+
+        if (!nextProps.isVisible && !this.state.isHidden) {
+            this.setState({isHidden: true, isTransitioning: true});
+            setTimeout($=> this.setState({isTransitioning: false}), 500);
+        }
+    }
+
     render() {
 
         var { id, slideDirection, isVisible, header, footer } = this.props;
+        var { isHidden, isTransitioning } = this.state;
         var classes = ['fullscreen'];
 
         var props = {...this.props};
@@ -27,6 +50,10 @@ export class FullscreenGrid extends React.Component {
 
         if (isVisible) {
             classes.push('fullscreen--active');
+        }
+
+        if (isHidden && !isTransitioning) {
+            classes.push('fullscreen--hidden');
         }
 
         if (header) {

@@ -3,6 +3,9 @@
 @import './styles/card';
 @import './styles/fullscreen';
 
+body, html {
+    background: #000;
+}
 
 .trialbee-title {
     font-family: 'Roboto Slab', serif;
