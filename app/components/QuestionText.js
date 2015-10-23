@@ -1,7 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/lib/Button';
 import Input from 'react-bootstrap/lib/Input';
 import Panel from 'react-bootstrap/lib/Panel';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+
+import Button from 'components/Button';
 
 import { validate } from 'utils/validations';
 
@@ -52,7 +54,7 @@ export class QuestionText extends React.Component {
     }
 
     render() {
-        var { question, placeholder } = this.props;
+        var { question, placeholder, canAnswer } = this.props;
         var { value, isValid, errors } = this.state;
         
         var bsStyle = null;
@@ -68,6 +70,14 @@ export class QuestionText extends React.Component {
             errors = <Panel header="Errors found!" bsStyle="danger">{errors}</Panel>;
         }
 
+        var nextBtn = (
+            <Button onTap={this.answer} 
+                bsStyle="primary">
+                <span>&nbsp;</span>
+                <Glyphicon glyph="ok" />
+            </Button>
+        );
+
         return (
             <div>
                 <h3>{question}</h3>
@@ -77,7 +87,8 @@ export class QuestionText extends React.Component {
                     placeholder={placeholder}
                     bsStyle={bsStyle}
                     onChange={this.updateValue}
-                    onFocus={this.updateValue} />
+                    onFocus={this.updateValue} 
+                    buttonAfter={nextBtn} />
                 {errors}
             </div>
         );

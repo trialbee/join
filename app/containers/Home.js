@@ -16,6 +16,7 @@ export class Home extends React.Component {
                 isVisible={!isPlaying} >
                 
                 <h3>TrialBee is Hiring!</h3>
+                <p>Come with us, You'll have fun!</p>
                 <hr />
                 <Button 
                     bsStyle="primary"

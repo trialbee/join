@@ -13,6 +13,7 @@ $duration: 0.3s;
     height: 100%;
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
+    color: #333;
 }
 
 .card-enter {
@@ -37,19 +38,19 @@ $duration: 0.3s;
 
 .card-wrapper {
     margin-top: 5%;
-    border: 1px solid #333;
-    padding: 20px;
+    padding: 18px;
     background: #fff;
-    box-shadow: 2px 2px 5px #666;
-    @include transition(all $duration $curve);
+    border: 3px solid #fff;
+    border-radius: 20px;
+    
+    // @include transition(all $duration $curve);
 
     .card--success & {
-        background: #287B24;
-        color: #fff;
+        border-color: rgb(40, 194, 49);
     }
 
     .card--error & {
-        // background: #FFDCDE;
+        border-color: rgb(251, 72, 71);
     }
 
 }

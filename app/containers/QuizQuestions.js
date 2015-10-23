@@ -27,7 +27,7 @@ export class QuizQuestions extends React.Component {
 
     requestAnswer = e => {
         e.preventDefault();
-        e.target.blur();
+        e.currentTarget.blur();
         this.refs.card.requestAnswer();
     }
 
@@ -50,6 +50,7 @@ export class QuizQuestions extends React.Component {
                     <Fade in={canAnswer}>
                         <Button onTap={this.requestAnswer}
                             bsStyle="primary" >
+                            <span>Next </span>
                             <Glyphicon glyph="chevron-right" />
                         </Button>
                     </Fade>

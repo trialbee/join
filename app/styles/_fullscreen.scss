@@ -21,16 +21,17 @@ $headingHeight: 50px;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00233e+0,053961+50,063c65+100 */
+    background: #00233e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #00233e 0%, #053961 50%, #063c65 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00233e), color-stop(50%,#053961), color-stop(100%,#063c65)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #00233e 0%,#053961 50%,#063c65 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #00233e 0%,#053961 50%,#063c65 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #00233e 0%,#053961 50%,#063c65 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #00233e 0%,#053961 50%,#063c65 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00233e', endColorstr='#063c65',GradientType=0 ); /* IE6-9 */
 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,cbebff+47,a1dbff+100;Blue+3D+%2313 */
-    background: #f0f9ff; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
     @include transition(transform $duration $curve);
 
@@ -53,6 +54,7 @@ $headingHeight: 50px;
     &__header {
         @include heading();
         top: 0;
+        color: #fff;
 
         & h1, & h2, & h3 {
             margin: 0;
@@ -76,6 +78,11 @@ $headingHeight: 50px;
         height: 100%;
         overflow-y: scroll; /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
+        color: #fff;
+    }
+
+    & > .container {
+        color: #fff;
     }
 
     &--headered &__content {
