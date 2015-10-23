@@ -3,7 +3,7 @@
 
 $curve: cubic-bezier(0.550, 0.055, 0.675, 0.190);
 $duration: 0.3s;
-$headingHeight: 50px;
+$headingHeight: 60px;
 
 @mixin heading() {
     position: absolute;
@@ -87,16 +87,16 @@ $headingHeight: 50px;
 
     &--headered &__content {
         margin-top: $headingHeight;
-        height: calc(100% - 50px);
+        height: calc(100% - 60px);
     }
 
     &--footered &__content {
         margin-bottom: $headingHeight;
-        height: calc(100% - 50px);
+        height: calc(100% - 60px);
     }
 
 
     &--headered.fullscreen--footered &__content {
-        height: -webkit-calc(100% - 100px);
+        height: -webkit-calc(100% - 120px);
     }
 }

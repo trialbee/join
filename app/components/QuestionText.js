@@ -80,7 +80,7 @@ export class QuestionText extends React.Component {
 
         return (
             <div>
-                <h3>{question}</h3>
+                <h4 className="trialbee-title">{question}</h4>
                 <Input
                     type="text"
                     value={value}

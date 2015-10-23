@@ -60,9 +60,9 @@ export class QuizQuestions extends React.Component {
 
         var footer = (
             <Button onTap={$=> dispatch(abort())}
-                bsStyle="danger"
+                bsStyle="link"
                 block >
-                Abort!
+                Abort Quiz
             </Button>
         );
 

@@ -2,7 +2,7 @@
 export const frontend = [{
     id: 'name',
     type: 'text',
-    question: 'What\'s your name?',
+    question: 'Describe yourself briefly:',
     placeholder: 'fullname is better',
     rules: [{
         type: 'notEmpty',
