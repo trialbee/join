@@ -50,6 +50,7 @@ export class QuestionMulti extends React.Component {
             options = options.map(opt => (
                 <Button
                     key={opt.value}
+                    bsStyle={opt.style || 'default'}
                     onTap={$=> this.answer(opt.value)}
                     children={opt.label} 
                     block />
