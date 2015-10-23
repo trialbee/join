@@ -1,7 +1,11 @@
 
+import { matchProfile } from 'utils/trialbee';
+
 export const validators = {
     notEmpty: notEmpty,
-    oneOf: oneOf
+    oneOf: oneOf,
+    regexp: regexp,
+    matchProfile: matchProfile
 };
 
 export function validate(value, rules = []) {
@@ -40,6 +44,10 @@ function notEmpty(value) {
 }
 
 function oneOf(value, rule) {
-    console.log(value, rule.values);
     return rule.values.indexOf(value) !== -1;
+}
+
+function regexp(value, rule) {
+    var exp = new RegExp(rule.exp, rule.flag);    
+    return exp.test(value);
 }

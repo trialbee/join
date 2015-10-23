@@ -43,23 +43,6 @@ export class QuizQuestions extends React.Component {
         }
 
         var header = (
-            <Row>
-                <Col xs={6}>
-                    <h3>Quiz</h3>
-                </Col>
-                <Col xs={6} className="text-right">
-                    <Fade in={canAnswer}>
-                        <Button onTap={this.requestAnswer}
-                            bsStyle="primary" >
-                            <span>Next </span>
-                            <Glyphicon glyph="chevron-right" />
-                        </Button>
-                    </Fade>
-                </Col>
-            </Row>
-        );
-
-        header = (
             <Progress current={currentQuestion} total={questions.length} />
         );
 

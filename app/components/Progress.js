@@ -28,7 +28,7 @@ export class Progress extends React.Component {
         }
 
         return (
-            <div style={{marginTop:30}}>
+            <div style={{marginTop:50}}>
                 <ProgressBar now={progress} bsStyle={bsStyle} style={{height:2,backgroundColor:'rgba(255,255,255,0.15)'}} />
             </div>
         );

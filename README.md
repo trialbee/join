@@ -37,9 +37,36 @@ Each question in the quiz must expose the following properties:
 
 and those optional properties
 
-- helper
-- rules
-- hints
+- helper (helper text)
+- rules (see Validation Rules)
+- hints (see Errors Hints)
+
+### text
+
+	{
+		type: 'text',
+		placeholder: 'helper text inside the form field'
+	}
+
+### multi
+
+	{
+		type: 'multi',
+		options: [{
+			value: 'foo',
+			label: 'Foo'
+		}]
+	}
+
+### info
+
+This is not a question but it is an information card among the quiz.
+
+	{
+		type: 'info',
+		question: 'foo',
+		htm: 'this is <b>a text that</b> will appear'
+	}
 	
 ## Validation Rules
 
@@ -59,4 +86,25 @@ Check if the given value is present in a control list.
 		type: 'oneOf',
 		values: ['val1', 'val2']
 	}
+	
+### regext
 
+	{
+		type: 'regexp',
+		exp: '',
+		flag: 'i'
+	}
+
+## Errors Hints
+
+It is possible to give some suggestions based on the amount of done mistakes:
+
+	hints: [{
+		count: 2,
+		msg: 'this is visible at the second mistake'
+	},{
+		count: 2,
+		andup: true,
+		msg: 'this is visible from the second mistake and for the followings'
+	}]
+	

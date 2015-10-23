@@ -1,4 +1,5 @@
 import React from 'react';
+import Panel from 'react-bootstrap/lib/Panel';
 
 export class Hints extends React.Component {
 
@@ -10,9 +11,12 @@ export class Hints extends React.Component {
         var classes = ['card-hints'];
         var { hints } = this.props;
 
-        hints = hints.map(hint => (
-            <p key={hint.id}>{hint.msg}</p>
-        ));
+        if (hints && hints.length) {
+            hints = hints.map(hint => (
+                <p key={hint.id} dangerouslySetInnerHTML={{__html:hint.msg}} />
+            ));
+            hints = <Panel bsStyle="info" style={{marginTop: 20}}>{hints}</Panel>;
+        }
 
         return (
             <div>

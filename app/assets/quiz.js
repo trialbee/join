@@ -1,5 +1,31 @@
 
+var profileTokens = [
+    '^passionate ',
+    '((js|javascript|ror|ruby|php))+ ',
+    '((senior|junior) )?',
+    '(software )?(engineer|dev(eloper)?)'
+];
+
 export const frontend = [{
+    id: 'job',
+    type: 'text',
+    question: 'you know',
+    placeholder: 'fullname is better',
+    helper: 'be truth with yourself',
+    rules: [{
+        type: 'matchProfile',
+        msg: 'You don\'t match <b>Trialbee</b> profile!'
+    }],
+    hints: [{
+        count: 1,
+        msg: 'what <b>the</b> fuck???'
+    }]
+},{
+    id: 'p1',
+    type: 'info',
+    question: 'now we do it for real',
+    html: 'this <b>is just</b> for fun'
+},{
     id: 'foo',
     type: 'multi',
     question: 'tabs or spaces?',
