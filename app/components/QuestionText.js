@@ -5,6 +5,9 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import Button from 'components/Button';
 
+import { QuestionHelper } from 'components/QuestionHelper';
+import { QuestionErrors } from 'components/QuestionErrors';
+
 import { validate } from 'utils/validations';
 
 function __noop() {}
@@ -54,7 +57,7 @@ export class QuestionText extends React.Component {
     }
 
     render() {
-        var { question, placeholder, canAnswer } = this.props;
+        var { question, placeholder, helper, canAnswer } = this.props;
         var { value, isValid, errors } = this.state;
         
         var bsStyle = null;
@@ -81,6 +84,8 @@ export class QuestionText extends React.Component {
         return (
             <div>
                 <h4 className="trialbee-title">{question}</h4>
+                <QuestionHelper text={helper} />
+                
                 <Input
                     type="text"
                     value={value}
@@ -89,7 +94,7 @@ export class QuestionText extends React.Component {
                     onChange={this.updateValue}
                     onFocus={this.updateValue} 
                     buttonAfter={nextBtn} />
-                {errors}
+                <QuestionErrors errors={this.state.errors} />
             </div>
         );
     }

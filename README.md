@@ -26,4 +26,37 @@ When the installation ends open your browser at [`http://localhost:3000`](http:/
 ## Deploy
 
 	firebase deploy
+
+## Type of Questions
+
+Each question in the quiz must expose the following properties:
+
+- id
+- type
+- question
+
+and those optional properties
+
+- helper
+- rules
+- hints
 	
+## Validation Rules
+
+In general a validation rule has the properties:
+
+- type
+- msg
+- stop
+
+### notEmpty
+
+### oneOf
+
+Check if the given value is present in a control list.
+
+	{
+		type: 'oneOf',
+		values: ['val1', 'val2']
+	}
+

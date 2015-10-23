@@ -1,6 +1,7 @@
 
 export const validators = {
-    notEmpty: notEmpty
+    notEmpty: notEmpty,
+    oneOf: oneOf
 };
 
 export function validate(value, rules = []) {
@@ -36,4 +37,8 @@ export function validate(value, rules = []) {
 
 function notEmpty(value) {
     return !!(value && value.length);
+}
+
+function oneOf(value, rule) {
+    return rule.values.indexOf(value) !== -1;
 }

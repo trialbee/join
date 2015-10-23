@@ -1,13 +1,35 @@
 
 export const frontend = [{
+    id: 'foo',
+    type: 'multi',
+    question: 'tabs or spaces?',
+    helper: 'think it through',
+    options: [{
+        value: 'tabs',
+        label: 'tabs'
+    },{
+        value: 'spaces',
+        label: 'spaces'
+    }],
+    rules: [{
+        type: 'notEmpty',
+        msg: 'you must choose an option dumb ass!',
+        stop: true
+    },{
+        type: 'oneOf',
+        values: ['tabs', 'spaces'],
+        msg: 'choose among the given options!'
+    }]
+},{
     id: 'name',
     type: 'text',
     question: 'Describe yourself briefly:',
     placeholder: 'fullname is better',
-    // rules: [{
-    //     type: 'notEmpty',
-    //     // msg: 'Value can not be empty'
-    // }],
+    helper: 'be truth with yourself',
+    rules: [{
+        type: 'notEmpty',
+        msg: 'Value can not be empty'
+    }],
     hints: [{
         count: 2,
         msg: 'Open Github and search...'
