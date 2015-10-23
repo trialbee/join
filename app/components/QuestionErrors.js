@@ -13,7 +13,7 @@ export class QuestionErrors extends React.Component {
 
         if (errors.length) {
             errors = errors.map((error, i) => <p key={i}>{error}</p>);
-            errors = <Panel bsStyle="danger">{errors}</Panel>;
+            errors = <Panel bsStyle="danger" style={{marginTop: 20}}>{errors}</Panel>;
         } else {
             errors = null;
         }

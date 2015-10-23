@@ -30,11 +30,12 @@ export class QuestionMulti extends React.Component {
     }
 
     answer = value => {
+        
         var { isValid, errors } = validate(value, this.props.rules);
         this.setState({isValid:isValid, errors:errors});
 
         if (isValid) {
-            setTimeout($=> this.props.onAnswer(this.state.value), 400);
+            setTimeout($=> this.props.onAnswer(value), 400);
         }
 
         this.props.setCardStatus(isValid);

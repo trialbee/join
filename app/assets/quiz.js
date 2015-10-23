@@ -8,8 +8,11 @@ export const frontend = [{
         value: 'tabs',
         label: 'tabs'
     },{
-        value: 'spaces',
-        label: 'spaces'
+        value: '2spaces',
+        label: '2 spaces'
+    },{
+        value: '4spaces',
+        label: '4 spaces'
     }],
     rules: [{
         type: 'notEmpty',
@@ -17,8 +20,8 @@ export const frontend = [{
         stop: true
     },{
         type: 'oneOf',
-        values: ['tabs', 'spaces'],
-        msg: 'choose among the given options!'
+        values: ['2spaces', '4spaces'],
+        msg: 'do you really think tabs is the correct answer?'
     }]
 },{
     id: 'name',

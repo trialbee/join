@@ -27,7 +27,7 @@ export function validate(value, rules = []) {
         }
 
         // implement blocking rule
-        if (rule.stop) {
+        if (!isValid && rule.stop) {
             isStopped = true;
         }
     });
@@ -40,5 +40,6 @@ function notEmpty(value) {
 }
 
 function oneOf(value, rule) {
+    console.log(value, rule.values);
     return rule.values.indexOf(value) !== -1;
 }
