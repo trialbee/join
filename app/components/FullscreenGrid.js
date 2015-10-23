@@ -4,6 +4,7 @@ import Grid from 'react-bootstrap/lib/Grid';
 export class FullscreenGrid extends React.Component {
 
     static defaultProps = {
+        id: null,
         slideDirection: null,
         isVisible: true,
         header: null,
@@ -12,9 +13,13 @@ export class FullscreenGrid extends React.Component {
 
     render() {
 
-        var { slideDirection, isVisible, header, footer } = this.props;
+        var { id, slideDirection, isVisible, header, footer } = this.props;
         var classes = ['fullscreen'];
-        var content = <Grid {...this.props} />;
+
+        var props = {...this.props};
+        delete(props.id);
+        
+        var content = <Grid {...props} />;
 
         if (null !== slideDirection) {
             classes.push('fullscreen--' + slideDirection);
@@ -27,7 +32,7 @@ export class FullscreenGrid extends React.Component {
         if (header) {
             header = (
                 <div className="fullscreen__header">
-                    <Grid {...this.props}>{header}</Grid>
+                    <Grid {...props}>{header}</Grid>
                 </div>
             );
             classes.push('fullscreen--headered');
@@ -36,7 +41,7 @@ export class FullscreenGrid extends React.Component {
         if (footer) {
             footer = (
                 <div className="fullscreen__footer">
-                    <Grid {...this.props}>{footer}</Grid>
+                    <Grid {...props}>{footer}</Grid>
                 </div>
             );
             classes.push('fullscreen--footered');
@@ -47,7 +52,7 @@ export class FullscreenGrid extends React.Component {
         }
 
         return (
-            <div className={classes.join(' ')}>
+            <div id={id} className={classes.join(' ')}>
                 {header}
                 {content}
                 {footer}

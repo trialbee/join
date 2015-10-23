@@ -9,8 +9,7 @@ import { FullscreenGrid } from 'components/FullscreenGrid';
 import Button from 'components/Button';
 
 import logo from 'assets/tblogo.png';
-
-console.log(logo);
+import bg from 'assets/tb-bg.jpg';
 
 @connect(s => s.app)
 export class Home extends React.Component {
@@ -33,18 +32,11 @@ export class Home extends React.Component {
 
         return (
             <FullscreenGrid 
+                id="home-page"
                 slideDirection="left" 
                 isVisible={!isPlaying}
                 header={header}
                 footer={footer} >
-                    
-                <div style={{marginTop:'20%',marginBottom:50}}>
-                    <h2 className="trialbee-title">TrialBee is Hiring!</h2>
-                    <p>Come with us, You'll have fun!</p>
-
-                </div>
-                
-
             </FullscreenGrid>
         );
     }
