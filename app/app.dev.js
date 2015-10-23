@@ -33,5 +33,5 @@ ReactDOM.render((
 
 // fake initial state
 setTimeout($=> {
-    // store.dispatch(require('services/quiz-service').start());
+    store.dispatch(require('services/quiz-service').start());
 }, 50);

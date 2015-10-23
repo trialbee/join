@@ -20,6 +20,7 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import { FullscreenGrid } from 'components/FullscreenGrid';
 import { QuizCard } from 'components/QuizCard';
+import { Progress } from 'components/Progress';
 import Button from 'components/Button';
 
 @connect(s => s)
@@ -56,6 +57,10 @@ export class QuizQuestions extends React.Component {
                     </Fade>
                 </Col>
             </Row>
+        );
+
+        header = (
+            <Progress current={currentQuestion} total={questions.length} />
         );
 
         var footer = (

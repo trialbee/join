@@ -44,7 +44,7 @@ export class QuizResults extends React.Component {
         );
 
         var footer = (
-            <div className="text-right">
+            <div className="text-right" style={{marginTop:10}}>
                 <Button onTap={$=> dispatch(abort())} bsStyle="link">cancel</Button>
                 <Button onTap={this.save} bsStyle="success">Apply!</Button>
             </div>

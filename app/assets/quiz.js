@@ -23,4 +23,8 @@ export const frontend = [{
     id: 'currPos',
     type: 'text',
     question: 'What\'s your current position?'
+},{
+    id: 'likeIt',
+    type: 'text',
+    question: 'Did you like it?'
 }];

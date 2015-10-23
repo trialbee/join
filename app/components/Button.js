@@ -19,7 +19,7 @@ export default class Button extends React.Component {
         }
 
         if (isMobile) {
-            props.onTouchStart = onTap;
+            props.onTouchEnd = onTap;
         } else {
             props.onClick = onTap;
         }
