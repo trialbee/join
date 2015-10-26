@@ -11,7 +11,7 @@ export const frontend = [
     question: 'Languages',
     html: [
         '<p>The following questions are about programming languages.</p>',
-        '<p>Please answer "yes" to languages that you feel comfortable working with.</p>'
+        '<p>Please answer "yes" to languages that you feel comfortable to work with.</p>'
     ].join('')
 },{
     id: 'php',
@@ -26,7 +26,7 @@ export const frontend = [
     type: 'bool',
     question: 'Do you know Vivaldi?',
     helper: [
-        '<p><a href="https://github.com/jeorgun/Vivaldi" target="_blank">Did you know it?</a><br>',
+        '<p><a href="https://github.com/jeorgun/Vivaldi" target="_blank">did you know it?</a><br>',
         '<a href="https://github.com/jeorgun/Vivaldi/issues/1" target="_blank">We are active contributors!</a></p>'
     ].join('')
 },{
@@ -52,8 +52,8 @@ export const frontend = [
     type: 'info',
     question: 'Techniques',
     html: [
-        '<p>Now I will present you with some <b>multiple choices</b> cards.</p>',
-        '<p>Pick your choice in the <b>shortest amount</b> of time, we track it!'</p>'
+        '<p>Now I will present you with some <b>multiple choice</b> questions.</p>',
+        '<p>Pick your choice in the <b>shortest amount of time</b>, we\'ll track it!</p>'
     ].join('')
 },
 {
@@ -98,7 +98,7 @@ export const frontend = [
     },{
         type: 'oneOf',
         values: ['2spaces', '4spaces'],
-        msg: 'do you <b>really</b> think tabs is the correct answer???''
+        msg: 'do you <b>really</b> think <b>tabs</b> is the correct answer???'
     }]
 },
 
@@ -108,7 +108,7 @@ export const frontend = [
     id: 'personal',
     type: 'info',
     question: 'Personal',
-    html: '<p>Now we get to know more about you</p>'
+    html: '<p>Now let\'s get to know you</p>'
 },
 {
     id: 'drinks',
@@ -152,31 +152,31 @@ export const frontend = [
     type: 'info',
     question: 'Now what?',
     html: [
-        '<p>Now we go to the real stuff!'</p>',
+        '<p>Now let\'s get to the real deal!</p>',
         '<p>In order to answer the following questions you may need to read or even run some code!</p>'
     ].join('')
 },
 {
     id: 'node-version',
     type: 'text',
-    question: 'Which version of NodeJS do we use in this app?'',
+    question: 'Which version of NodeJS do we use in this app?',
     rules: [{
         type: 'oneOf', values: ['0.12.7','12.7']
     }],
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to find the answer'
+        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
-        msg: 'you may find this information around the <b>readme</b> file...'
+        msg: 'you may find the info somewhere in the <b>readme</b>...'
     }]    
 },
 {
     id: 'building-tool',
     type: 'multi',
-    question: 'Which building tool does this app use?',
+    question: 'Which build tool is this app using?',
     options: [
         { value: 'browserify', label:'Browserify' },
         { value: 'grunt', label:'Grunt' },
@@ -190,7 +190,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to seek for an answert'
+        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
     }]
 },
 {
@@ -204,7 +204,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to seek for an answert'
+        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
@@ -221,7 +221,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to seek for an answert'
+        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
