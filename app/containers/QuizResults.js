@@ -58,10 +58,10 @@ export class QuizResults extends React.Component {
                 footer={footer}>
 
                 <p className="lead">
-                    You are a great guy and we&prime;d love to have you onboard!
+                    Thanks, you&prime;re awesome!
                 </p>
                 <p className="lead">
-                    Please fill up those informations and we&prime;ll call you back <i>asap</i>.
+                    Please fill out the form and we&prime;ll contact you.
                 </p>
 
                 <PersonalDataForm ref="profile" onSubmit={this.save} />
