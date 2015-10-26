@@ -11,7 +11,7 @@ export const frontend = [
     question: 'Languages',
     html: [
         '<p>The following questions are about programming languages.</p>',
-        '<p>Please answer "yes" to languages that you feel comfortable to work with.</p>'
+        '<p>Please answer "yes" to languages that you feel comfortable working with.</p>'
     ].join('')
 },{
     id: 'php',
@@ -26,8 +26,8 @@ export const frontend = [
     type: 'bool',
     question: 'Do you know Vivaldi?',
     helper: [
-        '<p><a href="https://github.com/jeorgun/Vivaldi" target="_blank">did you know it?</a><br>',
-        '<a href="https://github.com/jeorgun/Vivaldi/issues/1" target="_blank">we are active contributors!</a></p>'
+        '<p><a href="https://github.com/jeorgun/Vivaldi" target="_blank">Did you know it?</a><br>',
+        '<a href="https://github.com/jeorgun/Vivaldi/issues/1" target="_blank">We are active contributors!</a></p>'
     ].join('')
 },{
     id: 'rails',
@@ -53,7 +53,7 @@ export const frontend = [
     question: 'Techniques',
     html: [
         '<p>Now I will present you with some <b>multiple choices</b> cards.</p>',
-        '<p>Pick your choice in the <b>shortest amount of time</b>, we track it!</p>'
+        '<p>Pick your choice in the <b>shortest amount</b> of time, we track it!'</p>'
     ].join('')
 },
 {
@@ -93,12 +93,12 @@ export const frontend = [
     }],
     rules: [{
         type: 'notEmpty',
-        msg: 'you must choose an option dumb ass!',
+        msg: 'you must choose an option!',
         stop: true
     },{
         type: 'oneOf',
         values: ['2spaces', '4spaces'],
-        msg: 'do you <b>really</b> think <b>tabs</b> is the correct answer???'
+        msg: 'do you <b>really</b> think tabs is the correct answer???''
     }]
 },
 
@@ -108,7 +108,7 @@ export const frontend = [
     id: 'personal',
     type: 'info',
     question: 'Personal',
-    html: '<p>now we get to know yourself!</p>'
+    html: '<p>Now we get to know more about you</p>'
 },
 {
     id: 'drinks',
@@ -152,25 +152,25 @@ export const frontend = [
     type: 'info',
     question: 'Now what?',
     html: [
-        '<p>Now we get to the real stuff!</p>',
+        '<p>Now we go to the real stuff!'</p>',
         '<p>In order to answer the following questions you may need to read or even run some code!</p>'
     ].join('')
 },
 {
     id: 'node-version',
     type: 'text',
-    question: 'Which version of NodeJS do we use in this app?',
+    question: 'Which version of NodeJS do we use in this app?'',
     rules: [{
         type: 'oneOf', values: ['0.12.7','12.7']
     }],
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to seek for an answert'
+        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> to find the answer'
     },{
         count: 2,
         andup: true,
-        msg: 'you may find those kind of info around the <b>readme file</b>...'
+        msg: 'you may find this information around the <b>readme</b> file...'
     }]    
 },
 {
