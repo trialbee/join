@@ -9,7 +9,7 @@
     "dist": "node ./node_modules/webpack/bin/webpack --config webpack.dist.js",
     "test": "karma start",
     "app": "npm install && npm run dist && ./node_modules/http-server/bin/http-server ./dist -p 3001 -o",
-    "deploy": "npm install && npm run dist && firebase deploy"
+    "deploy": "npm install && npm run dist && ./deploy.sh"
   },
   "author": "",
   "license": "ISC",
