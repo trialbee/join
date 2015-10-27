@@ -166,7 +166,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
+        msg: 'you may want to <a href="https://github.com/trialbee/join" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
@@ -190,7 +190,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
+        msg: 'you may want to <a href="https://github.com/trialbee/join" target="_blank">take a look at our codebase</a> for an answer.'
     }]
 },
 {
@@ -204,7 +204,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
+        msg: 'you may want to <a href="https://github.com/trialbee/join" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
@@ -221,7 +221,7 @@ export const frontend = [
     hints: [{
         count: 1,
         andup: true,
-        msg: 'you may want to <a href="https://github.com/marcopeg/trialbee-hiring" target="_blank">take a look at our codebase</a> for an answer.'
+        msg: 'you may want to <a href="https://github.com/trialbee/join" target="_blank">take a look at our codebase</a> for an answer.'
     },{
         count: 2,
         andup: true,
