@@ -1,5 +1,5 @@
 {
-  "firebase": "trialbee",
+  "firebase": "jointrialbee",
   "public": "./dist",
   "ignore": [
     "firebase.json",
